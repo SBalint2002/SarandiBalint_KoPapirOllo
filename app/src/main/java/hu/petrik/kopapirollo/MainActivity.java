@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +16,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button ko, papir, ollo;
+    private ImageButton ko, papir, ollo;
     private ImageView enDobas, robotDobas;
-    private TextView eredmeny, dontetlen;
+    private TextView dontetlen;
     private int[] kepek = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
     private Random r = new Random();
     private int enertek, robotertek;
@@ -91,14 +92,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void ember() {
         enpont++;
-        String input = eredmeny.getText().toString();
-        eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
     }
 
     private void computer() {
         robotpont++;
-        String input = eredmeny.getText().toString();
-        eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
     }
 
     private void alert() {
@@ -146,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
         robotpont = 0;
         enDobas.setImageResource(R.drawable.rock);
         robotDobas.setImageResource(R.drawable.rock);
-        eredmeny.setText("Eredmény: Ember: 0 Computer: 0");
     }
 
     private void init() {
@@ -155,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
         ollo = findViewById(R.id.ollo);
         enDobas = findViewById(R.id.enDobas);
         robotDobas = findViewById(R.id.robotDobas);
-        eredmeny = findViewById(R.id.eredmeny);
         dontetlen = findViewById(R.id.dontetlen);
     }
 }

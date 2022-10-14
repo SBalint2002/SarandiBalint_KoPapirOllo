@@ -13,6 +13,14 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Döntetlenek száma: 0"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:id="@+id/dontetlen"/>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +54,6 @@
 
     </LinearLayout>
     <TextView
-        android:layout_marginTop="70dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

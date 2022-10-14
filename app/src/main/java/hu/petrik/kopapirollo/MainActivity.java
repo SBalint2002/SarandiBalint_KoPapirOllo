@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button ko, papir, ollo;
     private ImageView enDobas, robotDobas;
-    private TextView eredmeny;
+    private TextView eredmeny, dontetlen;
     private int[] kepek = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
     private Random r = new Random();
     private int enertek, robotertek;
-    private int enpont, robotpont = 0;
+    private int enpont, robotpont, tie = 0;
     private AlertDialog.Builder ujJatek;
 
     @Override
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     private void gyoztes() {
         if (enertek == robotertek) {
             Toast.makeText(MainActivity.this, "Döntetlen", Toast.LENGTH_SHORT).show();
+            tie++;
+            dontetlen.setText("Döntetlenek száma: " + tie);
         } else if (enertek == 0 && robotertek == 1) {
             Toast.makeText(MainActivity.this, "Gép nyert", Toast.LENGTH_SHORT).show();
             computer();
@@ -154,5 +156,6 @@ public class MainActivity extends AppCompatActivity {
         enDobas = findViewById(R.id.enDobas);
         robotDobas = findViewById(R.id.robotDobas);
         eredmeny = findViewById(R.id.eredmeny);
+        dontetlen = findViewById(R.id.dontetlen);
     }
 }

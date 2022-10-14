@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] kepek = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
     private Random r = new Random();
     private int enertek, robotertek;
+    private int enpont, robotpont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +64,35 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Döntetlen" ,Toast.LENGTH_SHORT).show();
         }else if(enertek == 0 && robotertek == 1){
             Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+            computer();
         }else if(enertek == 0 && robotertek == 2){
             Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+            ember();
         }else if (enertek == 1 && robotertek == 0){
             Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+            ember();
         }else if(enertek == 1 && robotertek == 2){
             Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+            computer();
         }else if(enertek == 2 && robotertek == 0){
             Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+            computer();
         }else if (enertek == 2 && robotertek == 1){
             Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+            ember();
         }
+    }
+
+    private void ember(){
+        enpont++;
+        String input = eredmeny.getText().toString();
+        eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
+    }
+
+    private void computer(){
+        robotpont++;
+        String input = eredmeny.getText().toString();
+        eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
     }
 
     private void init() {

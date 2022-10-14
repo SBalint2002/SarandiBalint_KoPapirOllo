@@ -13,12 +13,32 @@ public class MainActivity extends AppCompatActivity{
     private Button ko, papir, ollo;
     private ImageView enDobas, robotDobas;
     private TextView eredmeny;
+    private int[] kepek = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+
+        ko.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enDobas.setImageResource(R.drawable.rock);
+            }
+        });
+        papir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enDobas.setImageResource(R.drawable.paper);
+            }
+        });
+        ollo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enDobas.setImageResource(R.drawable.scissors);
+            }
+        });
     }
 
     private void init(){

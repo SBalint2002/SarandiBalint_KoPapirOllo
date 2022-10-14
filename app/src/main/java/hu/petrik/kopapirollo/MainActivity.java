@@ -1,7 +1,9 @@
 package hu.petrik.kopapirollo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Random r = new Random();
     private int enertek, robotertek;
     private int enpont, robotpont = 0;
+    private AlertDialog.Builder ujJatek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,46 +56,95 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void robotKor(){
+    private void robotKor() {
         robotertek = r.nextInt(3);
         robotDobas.setImageResource(kepek[robotertek]);
         gyoztes();
     }
 
-    private void gyoztes(){
-        if (enertek == robotertek){
-            Toast.makeText(MainActivity.this, "Döntetlen" ,Toast.LENGTH_SHORT).show();
-        }else if(enertek == 0 && robotertek == 1){
-            Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+    private void gyoztes() {
+        if (enertek == robotertek) {
+            Toast.makeText(MainActivity.this, "Döntetlen", Toast.LENGTH_SHORT).show();
+        } else if (enertek == 0 && robotertek == 1) {
+            Toast.makeText(MainActivity.this, "Gép nyert", Toast.LENGTH_SHORT).show();
             computer();
-        }else if(enertek == 0 && robotertek == 2){
-            Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+        } else if (enertek == 0 && robotertek == 2) {
+            Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
             ember();
-        }else if (enertek == 1 && robotertek == 0){
-            Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+        } else if (enertek == 1 && robotertek == 0) {
+            Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
             ember();
-        }else if(enertek == 1 && robotertek == 2){
-            Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+        } else if (enertek == 1 && robotertek == 2) {
+            Toast.makeText(MainActivity.this, "Gép nyert", Toast.LENGTH_SHORT).show();
             computer();
-        }else if(enertek == 2 && robotertek == 0){
-            Toast.makeText(MainActivity.this, "Gép nyert" ,Toast.LENGTH_SHORT).show();
+        } else if (enertek == 2 && robotertek == 0) {
+            Toast.makeText(MainActivity.this, "Gép nyert", Toast.LENGTH_SHORT).show();
             computer();
-        }else if (enertek == 2 && robotertek == 1){
-            Toast.makeText(MainActivity.this, "Te nyertél" ,Toast.LENGTH_SHORT).show();
+        } else if (enertek == 2 && robotertek == 1) {
+            Toast.makeText(MainActivity.this, "Te nyertél", Toast.LENGTH_SHORT).show();
             ember();
         }
+        alert();
     }
 
-    private void ember(){
+    private void ember() {
         enpont++;
         String input = eredmeny.getText().toString();
         eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
     }
 
-    private void computer(){
+    private void computer() {
         robotpont++;
         String input = eredmeny.getText().toString();
         eredmeny.setText("Eredmény: Ember: " + enpont + " Computer: " + robotpont);
+    }
+
+    private void alert() {
+        if (enpont == 3) {
+            ujJatek = new AlertDialog.Builder(MainActivity.this);
+            ujJatek.setTitle("Győzelem");
+            ujJatek.setMessage("Szeretne új játékot játszani?");
+            ujJatek.setCancelable(false);
+            ujJatek.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            ujJatek.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    newGame();
+                }
+            });
+            ujJatek.create().show();
+        } else if (robotpont == 3){
+            ujJatek = new AlertDialog.Builder(MainActivity.this);
+            ujJatek.setTitle("Vereség");
+            ujJatek.setMessage("Szeretne új játékot játszani?");
+            ujJatek.setCancelable(false);
+            ujJatek.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            ujJatek.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    newGame();
+                }
+            });
+            ujJatek.create().show();
+        }
+    }
+
+    private void newGame() {
+        enpont = 0;
+        robotpont = 0;
+        enDobas.setImageResource(R.drawable.rock);
+        robotDobas.setImageResource(R.drawable.rock);
+        eredmeny.setText("Eredmény: Ember: 0 Computer: 0");
     }
 
     private void init() {

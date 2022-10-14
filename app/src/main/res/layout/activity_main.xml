@@ -26,15 +26,18 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/gepsziv1"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/gepsziv2"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/gepsziv3"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,15 +60,18 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/ensziv1"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/ensziv2"/>
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/heart2"/>
+                    android:src="@drawable/heart2"
+                    android:id="@+id/ensziv3"/>
 
             </LinearLayout>
         </LinearLayout>

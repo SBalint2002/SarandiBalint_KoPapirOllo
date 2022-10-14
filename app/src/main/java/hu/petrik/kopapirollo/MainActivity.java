@@ -17,7 +17,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton ko, papir, ollo;
-    private ImageView enDobas, robotDobas;
+    private ImageView enDobas, robotDobas, ensziv1, ensziv2, ensziv3, gepsziv1, gepsziv2, gepsziv3;
     private TextView dontetlen;
     private int[] kepek = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
     private Random r = new Random();
@@ -92,10 +92,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void ember() {
         enpont++;
+        if(enpont == 1){
+            gepsziv1.setImageResource(R.drawable.heart1);
+        }else if(enpont == 2){
+            gepsziv2.setImageResource(R.drawable.heart1);
+        }else if(enpont == 3){
+            gepsziv3.setImageResource(R.drawable.heart1);
+        }
     }
 
     private void computer() {
         robotpont++;
+        if(robotpont == 1){
+            ensziv1.setImageResource(R.drawable.heart1);
+        }else if(robotpont == 2){
+            ensziv2.setImageResource(R.drawable.heart1);
+        }else if(robotpont == 3){
+            ensziv3.setImageResource(R.drawable.heart1);
+        }
     }
 
     private void alert() {
@@ -152,5 +166,11 @@ public class MainActivity extends AppCompatActivity {
         enDobas = findViewById(R.id.enDobas);
         robotDobas = findViewById(R.id.robotDobas);
         dontetlen = findViewById(R.id.dontetlen);
+        ensziv1 = findViewById(R.id.ensziv1);
+        ensziv2 = findViewById(R.id.ensziv2);
+        ensziv3 = findViewById(R.id.ensziv3);
+        gepsziv1 = findViewById(R.id.gepsziv1);
+        gepsziv2 = findViewById(R.id.gepsziv2);
+        gepsziv3 = findViewById(R.id.gepsziv3);
     }
 }

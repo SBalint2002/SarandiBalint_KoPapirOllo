@@ -157,6 +157,12 @@ public class MainActivity extends AppCompatActivity {
         robotpont = 0;
         enDobas.setImageResource(R.drawable.rock);
         robotDobas.setImageResource(R.drawable.rock);
+        ensziv1.setImageResource(R.drawable.heart2);
+        ensziv2.setImageResource(R.drawable.heart2);
+        ensziv3.setImageResource(R.drawable.heart2);
+        gepsziv1.setImageResource(R.drawable.heart2);
+        gepsziv2.setImageResource(R.drawable.heart2);
+        gepsziv3.setImageResource(R.drawable.heart2);
     }
 
     private void init() {
